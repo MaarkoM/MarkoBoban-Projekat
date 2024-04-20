@@ -57,7 +57,6 @@ function otvoriAutori() {
 let brojacSett = 0;
 let checkFleg = 1;
 
-
 function otvoriSettings() {
   let ispis = ``;
   let settWrap = document.querySelector(".settWrapper");
