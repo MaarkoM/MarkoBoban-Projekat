@@ -21,7 +21,6 @@ window.onload = function () {
   }
 };
 
-
 let warningCounter = 0;
 document.querySelector("#home").addEventListener("click", () => {
   if (warningCounter == 0) {
@@ -117,6 +116,7 @@ function klikNaKarticu() {
       parseInt(kartica.dataset.vrednost)
     )})`;
     okrenuteKartice.push(kartica);
+    zvucniEfekat();
     if (okrenuteKartice.length === 2) {
       setTimeout(proveriKartice, 1000);
     }
@@ -265,3 +265,10 @@ function home(){
     localStorage.removeItem("trenutniLevel");
     window.open("./index.html", "_self");
 }
+
+function zvucniEfekat() {
+  let audio = document.getElementById("zvucniEfekat");
+  audio.currentTime = 0;
+  audio.play();
+}
+
