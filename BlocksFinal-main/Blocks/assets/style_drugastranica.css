@@ -63,6 +63,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0);
+  max-width: 1400px;
 }
 .kartica {
   width: 15rem;
@@ -74,17 +75,20 @@ body {
   background-size: cover;
   cursor: pointer;
   display: inline-block;
-  transition: all 0.2s ease 0.2s;
+  transition: all 0.2s ease;
 }
 .poruka {
   position: absolute;
   z-index: 1;
   font-family: BlocksFont;
+  top: 30%;
+  left: 40%;
 }
 .porukaWrap {
   background: linear-gradient(to bottom, #485460, #1e272e);
   height: 25vh;
   width: 25rem;
+  position: fixed;
 }
 .naslovPoruka {
   display: flex;
@@ -135,7 +139,7 @@ body {
 }
 .notification {
   position: fixed;
-  top: 50%;
+  top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
@@ -156,4 +160,17 @@ body {
   background-color: black;
   color: white;
   padding: 5px;
+}
+.crveno{
+  color: red;
+  font-weight: bolder;
+}
+.backDrop{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
 }

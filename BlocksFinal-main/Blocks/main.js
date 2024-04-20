@@ -54,7 +54,10 @@ function otvoriAutori() {
   }
 }
 // DUGME ZA SETTINGS
-brojacSett = 0;
+let brojacSett = 0;
+let checkFleg = 1;
+
+
 function otvoriSettings() {
   let ispis = ``;
   let settWrap = document.querySelector(".settWrapper");
@@ -65,7 +68,9 @@ function otvoriSettings() {
     <div class="settMain">
     <div class="settVol">
     <label for="vol">Volume </label>
-    <input type="range" name="vol" id="vol" min="0" max="10" step="1">
+    <input type="range" name="vol" id="vol" min="0" max="10" step="1" value=${
+      soundMain.volume * 10
+    }>
     </div>
     <div class="settMute">
     <label for="mute">Mute </label>
@@ -81,19 +86,29 @@ function otvoriSettings() {
         settWrap.style.display = "none";
         brojacSett = 0;
       });
-
+    localStorage.setItem("muteFleg", checkFleg);
     const soundCheckbox = document.getElementById("mute");
     const volumeMixer = document.getElementById("vol");
+    
+    if (checkFleg == 1) {
+      soundCheckbox.checked = true;
+    } else {
+      soundCheckbox.checked !=true;
+    }
 
     volumeMixer.addEventListener("change", function () {
       soundMain.volume = this.value / 10;
     });
 
     soundCheckbox.addEventListener("change", function () {
-      if (this.checked) {
-        soundMain.pause();
-      } else {
+      if (localStorage.getItem("muteFleg", checkFleg) == 1) {
         soundMain.play();
+        checkFleg = 0;
+        localStorage.setItem("muteFleg", checkFleg);
+      } else {
+        soundMain.pause();
+        checkFleg = 1;
+        localStorage.setItem("muteFleg", checkFleg);
       }
     });
   } else if (brojacSett == 1) {

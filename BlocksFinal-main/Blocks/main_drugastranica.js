@@ -4,17 +4,23 @@ window.onload = function () {
     document.querySelector("#level").innerHTML = `Level : ${level}`;
   }
   if (level == 1) {
-    pokreniTajmer(60);
+    pokreniTajmer(80);
   }
 
   if (level == 2) {
-    pokreniTajmer(45);
+    pokreniTajmer(60);
   }
 
   if (level == 3) {
-    pokreniTajmer(5);
+    pokreniTajmer(45);
+    // if(porukaH == ispis){
+    //   document.querySelector(".dugme3").addEventListener("click", () => {
+    //   resetLvl();
+    // })
+    // };
   }
 };
+
 
 let warningCounter = 0;
 document.querySelector("#home").addEventListener("click", () => {
@@ -26,19 +32,18 @@ document.querySelector("#home").addEventListener("click", () => {
 
 function warning() {
   let div = document.createElement("div");
-  div.classList.add("warning");
+  div.classList.add("backDrop");
   let ispis = `
+  <div class = 'warning'>
   <h3>Warning!</h3>
   <p>If you leave, you will lose your progress. Please select an option.</p>
   <button class="yes">Yes</button>
-  <button class="no">No</button>`;
+  <button class="no">No</button>
+  </div>`;
   div.innerHTML = ispis;
   document.body.append(div);
 
-  document.querySelector(".yes").addEventListener("click", () => {
-    localStorage.removeItem("trenutniLevel");
-    window.open("./index.html", "_self");
-  });
+  document.querySelector(".yes").addEventListener("click", home);
 
   document.querySelector(".no").addEventListener("click", () => {
     warningCounter = 0;
@@ -68,18 +73,18 @@ const divIds = [
   "jedanaesta",
   "dvanaesta",
 ];
-map1.set(1, "assets/img/profilnaBT.jpg");
-map1.set(2, "assets/img/background-2.jpg");
-map1.set(3, "assets/img/1.jpg");
-map1.set(4, "assets/img/1.jpg");
-map1.set(5, "assets/img/2.jpg");
-map1.set(6, "assets/img/2.jpg");
-map1.set(7, "assets/img/profilnaBT.jpg");
-map1.set(8, "assets/img/background-2.jpg");
-map1.set(9, "assets/img/3.jpeg");
-map1.set(10, "assets/img/3.jpeg");
-map1.set(11, "assets/img/favicon.png");
-map1.set(12, "assets/img/favicon.png");
+map1.set(1, "assets/img/G-Bear.jpg");
+map1.set(2, "assets/img/G-Bear.jpg");
+map1.set(3, "assets/img/G-Fox2.jpg");
+map1.set(4, "assets/img/G-Fox2.jpg");
+map1.set(5, "assets/img/G-Owl.jpg");
+map1.set(6, "assets/img/G-Panda2.jpg");
+map1.set(7, "assets/img/G-Panda2.jpg");
+map1.set(8, "assets/img/G-Wolf2.jpg");
+map1.set(9, "assets/img/G-Wolf2.jpg");
+map1.set(10, "assets/img/G-Owl.jpg");
+map1.set(11, "assets/img/G-Sun.jpg");
+map1.set(12, "assets/img/G-Sun.jpg");
 
 const pairs = Array.from(map1.entries());
 
@@ -147,33 +152,63 @@ function proveriKartice() {
     }, 1000);
   }
 }
-
+let ispis = ``
+let porukaH;
 function poruka() {
-  let poruka = document.querySelector(".poruka");
-  let ispis = `
+   porukaH = document.querySelector(".poruka");
+   porukaH.parentElement.classList.add("backDrop");
+  
+  if(level == 3){
+     ispis = `
+     
     <div class="porukaWrap">
-      <h1 class="naslovPoruka">Završili ste igru!</h1>
+      <h1 class="naslovPoruka">You Won!</h1>
       <div class="dugmici">
-        <button class="dugme1 btn btn-secondary">Vratite se na početak</button>
-        <button class="dugme2 btn btn-primary">Započnite novu igru</button>
+        <button class="dugme3 btn btn-success">Play again</button>
+        <button class="dugme2 btn btn-danger">Home</button>
       </div>
     </div>
+    
   `;
-  poruka.innerHTML += ispis;
-  document.querySelector(".dugme1").addEventListener("click", () => {
+  } else {
+     ispis = `
+     
+    <div class="porukaWrap">
+      <h1 class="naslovPoruka">Level cleared</h1>
+      <div class="dugmici">
+        <button class="dugme1 btn btn-success">Next Level</button>
+        <button class="dugme2 btn btn-danger">Home</button>
+      </div>
+    </div>
+    
+  `;
+  }
+  
+  porukaH.innerHTML += ispis;
+  if(porukaH.innerHTML == ispis){
+  document.querySelector(".dugme2").addEventListener("click", () => {
     level = 1;
     localStorage.setItem("trenutniLevel", level);
-    reload();
+    home();
   });
-
-  document.querySelector(".dugme2").addEventListener("click", () => {
+if(level<3){
+  // console.log("naace");
+  document.querySelector(".dugme1").addEventListener("click", () => {
     noviLevel();
     reload();
   });
 }
+if(level == 3){
+  document.querySelector(".dugme3").addEventListener("click", resetLvl);
+}
+  
+}
+}
+
 
 function noviLevel() {
   level++;
+  console.log(level);
   localStorage.setItem("trenutniLevel", level);
   document.querySelector("#level").innerHTML = `Level: ${level}`;
   reload();
@@ -198,22 +233,35 @@ function pokreniTajmer(vreme) {
       clearInterval(interval);
       notification();
     }
+    if (tajmer < 10){
+      prikaz.classList.add("crveno")
+    }
   }, 1000);
 }
 
 function notification() {
   let div = document.createElement("div");
-  div.classList.add("notification");
+  div.classList.add("backDrop");
   let ispis = `
+  <div class = 'notification'>
   <h3>Notification</h3>
   <p>Unfortunately, your time has expired. You need to start from the beginning.</p>
-  <button id="restart">Restart game</button>`;
+  <button id="restart">Restart game</button>
+  </div>`;
   div.innerHTML = ispis;
   document.body.append(div);
 
-  document.querySelector("#restart").addEventListener("click", () => {
-    level = 1;
-    localStorage.setItem("trenutniLevel", level);
-    reload();
-  });
+  document.querySelector("#restart").addEventListener("click", resetLvl);
+}
+
+function resetLvl(){
+  level = 1;
+  localStorage.setItem("trenutniLevel", level);
+  reload();
+
+}
+
+function home(){
+    localStorage.removeItem("trenutniLevel");
+    window.open("./index.html", "_self");
 }
