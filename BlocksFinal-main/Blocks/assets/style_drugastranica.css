@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background-image: url(../assets/img/background-2.jpg);
   background-size: cover;
@@ -16,6 +17,9 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+.okvir {
+  width: 100%;
 }
 
 #home {
@@ -70,7 +74,6 @@ body {
   height: 10.5rem;
   background-color: white;
   margin: 2%;
-  border-radius: 5%;
   background-image: url(../assets/img/bricks.jpg);
   background-size: cover;
   cursor: pointer;
@@ -83,12 +86,13 @@ body {
   font-family: BlocksFont;
   top: 30%;
   left: 40%;
+  width: 100%;
 }
 .porukaWrap {
   background: linear-gradient(to bottom, #485460, #1e272e);
-  height: 25vh;
   width: 25rem;
   position: fixed;
+  
 }
 .naslovPoruka {
   display: flex;
@@ -161,11 +165,11 @@ body {
   color: white;
   padding: 5px;
 }
-.crveno{
+.crveno {
   color: red;
   font-weight: bolder;
 }
-.backDrop{
+.backDrop {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -173,4 +177,160 @@ body {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 425px) {
+  #home {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.8rem;
+    margin-top: 0;
+  }
+  .home-tooltiptext {
+    display: none;
+  }
+  #level {
+    font-size: 0.9rem;
+    display: flex;
+    margin-bottom: 0;
+  }
+  .okvir {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem 0;
+  }
+  .vreme {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+  .kartica {
+    width: 6rem;
+    height: 4.5rem;
+  }
+  .notification,
+  .warning,
+  .porukaWrap {
+    top: 50%;
+    text-align: center;
+    width: 15rem;
+    padding: 0.5rem;
+  }
+  .notification h3,
+  .warning h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .notification p,
+  .warning p {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+  #restart,
+  .warning button {
+    font-size: 0.7rem;
+    padding: 0;
+    width: 5rem;
+    margin-right: 4px;
+  }
+  .porukaWrap {
+    width: 15rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .dugmici {
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  #home {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    margin-top: 0;
+  }
+  .home-tooltiptext {
+    display: none;
+  }
+  #level {
+    font-size: 1.1rem;
+    display: flex;
+    margin-bottom: 0;
+  }
+  .okvir {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem 0;
+  }
+  .vreme {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+  .kartica {
+    width: 6.5rem;
+    height: 4.6rem;
+  }
+  .notification,
+  .warning {
+    top: 50%;
+    text-align: center;
+    width: 17rem;
+    padding: 0.5rem;
+  }
+  .notification h3,
+  .warning h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .notification p,
+  .warning p {
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  #restart,
+  .warning button {
+    font-size: 0.7rem;
+    padding: 0;
+    width: 5rem;
+    margin-right: 4px;
+  }
+  .porukaWrap {
+    left: 15%;
+    top: 40%;
+    width: 18rem;
+  }
+  .dugmici {
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .kartica {
+    width: 9rem;
+    height: 6.6rem;
+  }
+  .porukaWrap {
+    left: 30%;
+    top: 40%;
+    width: 18rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .kartica {
+    width: 14rem;
+    height: 10rem;
+  }
+
+  .notification h3 {
+    font-weight: bold;
+  }
+  .porukaWrap {
+    left: 37%;
+    top: 38%;
+  }
 }
