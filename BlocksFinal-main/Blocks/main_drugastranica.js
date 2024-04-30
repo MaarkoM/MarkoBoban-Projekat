@@ -1,3 +1,5 @@
+
+
 window.onload = function () {
   if (localStorage.getItem("trenutniLevel")) {
     level = parseInt(localStorage.getItem("trenutniLevel"));
@@ -20,6 +22,8 @@ window.onload = function () {
     // };
   }
 };
+// import JSConfetti from 'js-confetti'
+// const jsConfetti = new JSConfetti()
 
 let warningCounter = 0;
 document.querySelector("#home").addEventListener("click", () => {
@@ -170,6 +174,27 @@ function poruka() {
     </div>
     
   `;
+
+//   let duration = 5 * 1000;
+// let animationEnd = Date.now() + duration;
+// let defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+// let confetti;
+
+
+// let intervalConfetti = setInterval(function() {
+//   let timeLeft = animationEnd - Date.now();
+
+//   if (timeLeft <= 0) {
+//     return clearInterval(intervalConfetti);
+//   }
+
+//   let particleCount = 50 * (timeLeft / duration);
+//   // since particles fall down, start a bit higher than random
+//   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+//   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+// }, 250);
+// jsConfetti.addConfetti()
+
   } else {
      ispis = `
      
@@ -205,6 +230,9 @@ if(level == 3){
 }
 }
 
+function randomInRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 function noviLevel() {
   level++;

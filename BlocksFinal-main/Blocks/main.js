@@ -20,11 +20,11 @@ function otvoriAutori() {
     autorWrap.style.display = "block";
     ispis += `
   <h2>Credits<i class="fa-solid fa-circle-xmark" id="close"></i></h2>
-  <div class="row">
+  <div class="row row1">
     <img src="${"./assets/img/profilnaBT.jpg"}" alt="Greška, profilnaBT.jpg nije podržana.">
     <img src="${"./assets/img/profilnaBT.jpg"}" alt="Greška, profilnaMM.jpg nije podržana.">
     </div>
-    <div class="row">
+    <div class="row row2">
     <a href="https://github.com/todicb" target="_blank">Boban Todić <i class="fa-brands fa-github"></i></a>
     <a href="https://github.com/MaarkoM" target="_blank">Marko Mojsilović <i class="fa-brands fa-github"></i></a>
   </div>
