@@ -88,11 +88,11 @@ function otvoriSettings() {
     localStorage.setItem("muteFleg", checkFleg);
     const soundCheckbox = document.getElementById("mute");
     const volumeMixer = document.getElementById("vol");
-    
+
     if (checkFleg == 1) {
       soundCheckbox.checked = true;
     } else {
-      soundCheckbox.checked !=true;
+      soundCheckbox.checked != true;
     }
 
     volumeMixer.addEventListener("change", function () {

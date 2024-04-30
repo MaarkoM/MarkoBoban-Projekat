@@ -32,7 +32,6 @@ document.querySelector("#home").addEventListener("click", () => {
     warningCounter++;
   }
 });
-
 function warning() {
   let div = document.createElement("div");
   div.classList.add("backDrop");
@@ -156,14 +155,14 @@ function proveriKartice() {
     }, 1000);
   }
 }
-let ispis = ``
+let ispis = ``;
 let porukaH;
 function poruka() {
-   porukaH = document.querySelector(".poruka");
-   porukaH.parentElement.classList.add("backDrop");
-  
-  if(level == 3){
-     ispis = `
+  porukaH = document.querySelector(".poruka");
+  porukaH.parentElement.classList.add("backDrop");
+
+  if (level == 3) {
+    ispis = `
      
     <div class="porukaWrap">
       <h1 class="naslovPoruka">You Won!</h1>
@@ -196,7 +195,7 @@ function poruka() {
 // jsConfetti.addConfetti()
 
   } else {
-     ispis = `
+    ispis = `
      
     <div class="porukaWrap">
       <h1 class="naslovPoruka">Level cleared</h1>
@@ -208,28 +207,26 @@ function poruka() {
     
   `;
   }
-  
-  porukaH.innerHTML += ispis;
-  if(porukaH.innerHTML == ispis){
-  document.querySelector(".dugme2").addEventListener("click", () => {
-    level = 1;
-    localStorage.setItem("trenutniLevel", level);
-    home();
-  });
-if(level<3){
-  // console.log("naace");
-  document.querySelector(".dugme1").addEventListener("click", () => {
-    noviLevel();
-    reload();
-  });
-}
-if(level == 3){
-  document.querySelector(".dugme3").addEventListener("click", resetLvl);
-}
-  
-}
-}
 
+  porukaH.innerHTML += ispis;
+  if (porukaH.innerHTML == ispis) {
+    document.querySelector(".dugme2").addEventListener("click", () => {
+      level = 1;
+      localStorage.setItem("trenutniLevel", level);
+      home();
+    });
+    if (level < 3) {
+      // console.log("naace");
+      document.querySelector(".dugme1").addEventListener("click", () => {
+        noviLevel();
+        reload();
+      });
+    }
+    if (level == 3) {
+      document.querySelector(".dugme3").addEventListener("click", resetLvl);
+    }
+  }
+}
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -261,8 +258,8 @@ function pokreniTajmer(vreme) {
       clearInterval(interval);
       notification();
     }
-    if (tajmer < 10){
-      prikaz.classList.add("crveno")
+    if (tajmer < 10) {
+      prikaz.classList.add("crveno");
     }
   }, 1000);
 }
@@ -282,16 +279,15 @@ function notification() {
   document.querySelector("#restart").addEventListener("click", resetLvl);
 }
 
-function resetLvl(){
+function resetLvl() {
   level = 1;
   localStorage.setItem("trenutniLevel", level);
   reload();
-
 }
 
-function home(){
-    localStorage.removeItem("trenutniLevel");
-    window.open("./index.html", "_self");
+function home() {
+  localStorage.removeItem("trenutniLevel");
+  window.open("./index.html", "_self");
 }
 
 function zvucniEfekat() {
@@ -299,4 +295,3 @@ function zvucniEfekat() {
   audio.currentTime = 0;
   audio.play();
 }
-
