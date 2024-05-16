@@ -92,7 +92,6 @@ body {
   background: linear-gradient(to bottom, #485460, #1e272e);
   width: 25rem;
   position: fixed;
-  
 }
 .naslovPoruka {
   display: flex;
@@ -320,17 +319,47 @@ body {
     width: 18rem;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  #home {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+  #level {
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+  .vreme {
+    font-size: 1rem;
+  }
   .kartica {
     width: 14rem;
     height: 10rem;
   }
-
   .notification h3 {
     font-weight: bold;
   }
   .porukaWrap {
     left: 37%;
     top: 38%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #home {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+  }
+  #level {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+  }
+  .vreme {
+    font-size: 1.5rem;
+  }
+  .kartica {
+    width: 15rem;
+    height: 11rem;
   }
 }
