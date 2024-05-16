@@ -1,5 +1,3 @@
-
-
 window.onload = function () {
   if (localStorage.getItem("trenutniLevel")) {
     level = parseInt(localStorage.getItem("trenutniLevel"));
@@ -89,7 +87,6 @@ map1.set(11, "assets/img/G-Sun.jpg");
 map1.set(12, "assets/img/G-Sun.jpg");
 
 const pairs = Array.from(map1.entries());
-console.log(pairs);
 
 
 //Fisher-Yates-algoritam za nasumično miješanje elemenata niza
@@ -100,9 +97,7 @@ for (let i = pairs.length - 1; i > 0; i--) {
 
 const shuffledMap = new Map(pairs);
 
-
 const divIndexes = Array.from({ length: divIds.length }, (_, index) => index);
-
 
 for (const [value, key] of shuffledMap.entries()) {
   const randomIndex = Math.floor(Math.random() * divIndexes.length);
@@ -178,26 +173,24 @@ function poruka() {
     
   `;
 
-//   let duration = 5 * 1000;
-// let animationEnd = Date.now() + duration;
-// let defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-// let confetti;
+    //   let duration = 5 * 1000;
+    // let animationEnd = Date.now() + duration;
+    // let defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+    // let confetti;
 
+    // let intervalConfetti = setInterval(function() {
+    //   let timeLeft = animationEnd - Date.now();
 
-// let intervalConfetti = setInterval(function() {
-//   let timeLeft = animationEnd - Date.now();
+    //   if (timeLeft <= 0) {
+    //     return clearInterval(intervalConfetti);
+    //   }
 
-//   if (timeLeft <= 0) {
-//     return clearInterval(intervalConfetti);
-//   }
-
-//   let particleCount = 50 * (timeLeft / duration);
-//   // since particles fall down, start a bit higher than random
-//   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
-//   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
-// }, 250);
-// jsConfetti.addConfetti()
-
+    //   let particleCount = 50 * (timeLeft / duration);
+    //   // since particles fall down, start a bit higher than random
+    //   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+    //   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+    // }, 250);
+    // jsConfetti.addConfetti()
   } else {
     ispis = `
      
@@ -251,8 +244,8 @@ function pokreniTajmer(vreme) {
   var prikaz = document.querySelector(".vreme");
   var tajmer = vreme;
   interval = setInterval(function () {
-    minute = parseInt(tajmer / 60, 10);
-    sekunde = parseInt(tajmer % 60, 10);
+    minute = parseInt(tajmer / 60);
+    sekunde = parseInt(tajmer % 60);
 
     minute = minute < 10 ? "0" + minute : minute;
     sekunde = sekunde < 10 ? "0" + sekunde : sekunde;
