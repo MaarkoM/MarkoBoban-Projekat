@@ -89,6 +89,8 @@ map1.set(11, "assets/img/G-Sun.jpg");
 map1.set(12, "assets/img/G-Sun.jpg");
 
 const pairs = Array.from(map1.entries());
+console.log(pairs);
+
 
 //Fisher-Yates-algoritam za nasumično miješanje elemenata niza
 for (let i = pairs.length - 1; i > 0; i--) {
@@ -98,7 +100,9 @@ for (let i = pairs.length - 1; i > 0; i--) {
 
 const shuffledMap = new Map(pairs);
 
+
 const divIndexes = Array.from({ length: divIds.length }, (_, index) => index);
+
 
 for (const [value, key] of shuffledMap.entries()) {
   const randomIndex = Math.floor(Math.random() * divIndexes.length);
@@ -141,7 +145,7 @@ function proveriKartice() {
     prvaKartica.removeEventListener("click", klikNaKarticu);
     drugaKartica.removeEventListener("click", klikNaKarticu);
     counter++;
-    if (counter == 1) {
+    if (counter == 6) {
       clearInterval(interval);
       poruka();
     }
@@ -204,7 +208,6 @@ function poruka() {
         <button class="dugme2 btn btn-danger">Home</button>
       </div>
     </div>
-    
   `;
   }
 
