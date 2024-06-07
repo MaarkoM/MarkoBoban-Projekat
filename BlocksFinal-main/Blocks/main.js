@@ -22,7 +22,7 @@ function otvoriAutori() {
   <h2>Credits<i class="fa-solid fa-circle-xmark" id="close"></i></h2>
   <div class="row row1">
     <img src="${"./assets/img/profilnaBT.jpg"}" alt="Greška, profilnaBT.jpg nije podržana.">
-    <img src="${"./assets/img/profilnaBT.jpg"}" alt="Greška, profilnaMM.jpg nije podržana.">
+    <img src="${"./assets/img/MarkoMProfilna.jpg"}" alt="Greška, profilnaMM.jpg nije podržana.">
     </div>
     <div class="row row2">
     <a href="https://github.com/todicb" target="_blank">Boban Todić <i class="fa-brands fa-github"></i></a>
