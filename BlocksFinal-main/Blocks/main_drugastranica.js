@@ -88,7 +88,6 @@ map1.set(12, "assets/img/G-Sun.jpg");
 
 const pairs = Array.from(map1.entries());
 
-
 //Fisher-Yates-algoritam za nasumično miješanje elemenata niza
 for (let i = pairs.length - 1; i > 0; i--) {
   let j = Math.floor(Math.random() * (i + 1));
@@ -110,7 +109,6 @@ for (const [value, key] of shuffledMap.entries()) {
 
 ////
 let okrenuteKartice = [];
-
 function klikNaKarticu() {
   const kartica = this;
   if (okrenuteKartice.length < 2 && !okrenuteKartice.includes(kartica)) {
